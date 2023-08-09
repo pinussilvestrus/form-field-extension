@@ -31,7 +31,7 @@ export default function Home() {
       </div>
       <div className="max-w-5xl w-full justify-between flex">
         <div className="left-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
-          <Btn title="Number range" />
+          <Link href="/edit/range"><Btn title="Number range" /></Link>
           <Btn title="foo" />
           <Btn title="bar" />
           <Btn title="xxx" />

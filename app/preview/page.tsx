@@ -1,8 +1,12 @@
-import schema from './form.json';
+'use client'
 
-import Link from 'next/link';
+import Link from 'next/link'
 
-import { FormEditor } from './FormEditor';
+import { FormEditor } from './FormEditor'
+
+import schema from './form.json'
+
+import { Range } from '../../form-fields'
 
 export default function Preview() {
 
@@ -13,7 +17,12 @@ export default function Preview() {
           Edit fields
         </button>
       </Link>
-      <FormEditor schema={ schema } data={ {} } />
+      <FormEditor 
+        schema={ schema } 
+        data={ {} }
+        extensions={ [
+          Range
+        ] } />
     </main>
   )
 }

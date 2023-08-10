@@ -1,5 +1,7 @@
 import { CustomFormFields } from './viewer';
 
+import { CustomPropertiesProvider } from './editor';
+
 import './styles.css';
 
 const viewerModule = {
@@ -7,6 +9,13 @@ const viewerModule = {
   fileField: [ 'type', CustomFormFields ]
 };
 
+const editorModule = {
+  __init__: [ 'filePropertiesProvider' ],
+  filePropertiesProvider: [ 'type', CustomPropertiesProvider ]
+};
+
 export const File = {
-  viewerModule
+  viewerModule,
+  key: 'file',
+  editorModule
 };

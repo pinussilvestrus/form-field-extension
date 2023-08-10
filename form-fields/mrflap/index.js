@@ -1,3 +1,5 @@
+import { CustomPropertiesProvider } from './editor';
+
 import { CustomFormFields } from './viewer';
 
 import 'mr-flap/dist/mrflap.min.css';
@@ -8,6 +10,13 @@ const viewerModule = {
   mrflapField: [ 'type', CustomFormFields ]
 };
 
+const editorModule = {
+  __init__: [ 'mrflapPropertiesProvider' ],
+  mrflapPropertiesProvider: [ 'type', CustomPropertiesProvider ]
+};
+
 export const Mrflap = {
-  viewerModule
+  viewerModule,
+  editorModule,
+  key: 'mrflap'
 };

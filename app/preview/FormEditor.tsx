@@ -14,6 +14,7 @@ import '@camunda/form-playground/dist/assets/camunda-form-playground.css'
 type Extension = {
   viewerModule: ModuleDeclaration;
   editorModule: ModuleDeclaration;
+  key: string;
 }
 
 

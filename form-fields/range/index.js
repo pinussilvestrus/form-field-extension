@@ -16,5 +16,6 @@ const viewerModule = {
 
 export const Range = {
   viewerModule,
-  editorModule
+  editorModule,
+  key: 'range'
 };

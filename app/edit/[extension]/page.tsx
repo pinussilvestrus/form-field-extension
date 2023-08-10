@@ -1,7 +1,7 @@
 import { readFileSync } from "fs"
 
-import { JSEditor } from "../JSEditor";
-import { CSSEditor } from "../CSSEditor";
+import { CodeEditor } from "../CodeEditor";
+import { ExtensionsSelect } from "../ExtensionsSelect";
 
 export default function EditExtension({ params }: { 
   params: { extension: string } 
@@ -20,7 +20,6 @@ export default function EditExtension({ params }: {
     styles = readFileSync(`./form-fields/${extension}/styles.css`, 'utf8');
     editorModule = readFileSync(`./form-fields/${extension}/editor.js`, 'utf8');
 
-    console.log(styles);
   } catch (error: any) {
 
     if(error.code === 'ENOENT' && (
@@ -42,12 +41,21 @@ export default function EditExtension({ params }: {
 
   return (
     <main className="flex flex-col p-4 mb-4">
-      <h1 className="p-1.5 font-bold">{ extension.toUpperCase() }</h1>
-        <div className="flex w-full">
-          <JSEditor title="Form field definition" value={ viewerModule } />
-          <JSEditor title="Properties panel extension" value={ editorModule } />
-          <CSSEditor title="Styles" value={ styles } />
-        </div>
+      <ExtensionsSelect selected={ extension } />
+      <div className="flex w-full">
+        <CodeEditor 
+          title="Form field definition" 
+          value={ viewerModule } 
+          language="javascript" />
+        <CodeEditor 
+          title="Properties panel extension" 
+          value={ editorModule } 
+          language="javascript" />
+        <CodeEditor 
+          title="Styles" 
+          value={ styles } 
+          language="css" />
+      </div>
     </main>
   );
 

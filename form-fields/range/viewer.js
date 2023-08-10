@@ -88,9 +88,7 @@ RangeRenderer.config = {
     'min',
     'max'
   ],
-
-  // todo(pinussilvestrus): not working yet
-  // icon: RangeIcon
+  iconUrl: `data:image/svg+xml,${ encodeURIComponent(RangeIcon) }`
 };
 
 export class CustomFormFields {

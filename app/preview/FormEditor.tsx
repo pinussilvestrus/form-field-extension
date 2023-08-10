@@ -66,6 +66,24 @@ export function FormEditor(props: {
     }
   }, [ data, schema, extensions ]);
 
+  useEffect(() => {
+    async function handleKeydown(event: KeyboardEvent) {
+      if(event.key === 's' && (event.ctrlKey || event.metaKey)) {
+        event.preventDefault();
+        const schema = await formEditorRef.current.saveSchema();
+        console.log('Exported form schema: ', schema);
+      }
+    }
+
+    if(formNodeRef.current) {
+      window.addEventListener('keydown', handleKeydown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+    }
+  });
+
   return (
     <div className="form-container h-full" ref={ formNodeRef }></div>
   );

@@ -2,7 +2,6 @@
 
 import {
   FormContext,
-  Numberfield,
   Description,
   Label
 } from '@bpmn-io/form-js';
@@ -79,6 +78,7 @@ function FileInputRenderer(props) {
 FileInputRenderer.config = {
   type: fileType,
   keyed: true,
+  emptyValue: null,
   label: 'File input',
   group: 'presentation',
   create: (options = {}) => ({ ...options }),
@@ -87,9 +87,7 @@ FileInputRenderer.config = {
     'label',
     'description'
   ],
-
-  // todo(pinussilvestrus): not working yet
-  // icon: FileIcon
+  iconUrl: `data:image/svg+xml,${ encodeURIComponent(FileIcon) }`
 };
 
 export class CustomFormFields {

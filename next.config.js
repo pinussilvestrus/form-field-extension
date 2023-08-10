@@ -9,9 +9,8 @@ const nextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
-    })
+      loader: 'raw-loader'
+    });
 
     // todo(pinussilvestrus): this should not be needed
     config.plugins.push(

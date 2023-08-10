@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "yarn link @bpmn-io/form-js"
   },
   "dependencies": {
     "@bpmn-io/form-js": "1.2.0",

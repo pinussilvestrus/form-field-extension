@@ -1,6 +1,6 @@
-import { readFileSync } from "fs"
+import { readFileSync, writeFileSync } from "fs"
 
-import { CodeEditor } from "../CodeEditor";
+import { Editors } from "./Editors";
 import { ExtensionsSelect } from "../ExtensionsSelect";
 
 export default function EditExtension({ params }: { 
@@ -12,6 +12,12 @@ export default function EditExtension({ params }: {
   } = params;
 
   let viewerModule = '', editorModule = '', styles = '';
+
+  const handleModuleChange = async (newValue: string|undefined, fileName: string) => {
+    'use server'
+    
+    writeFileSync(`./form-fields/${extension}/${fileName}`, newValue || '');
+  }
 
   try {
 
@@ -42,20 +48,11 @@ export default function EditExtension({ params }: {
   return (
     <main className="flex flex-col p-4 mb-4">
       <ExtensionsSelect selected={ extension } />
-      <div className="flex w-full">
-        <CodeEditor 
-          title="Form field definition" 
-          value={ viewerModule } 
-          language="javascript" />
-        <CodeEditor 
-          title="Properties panel extension" 
-          value={ editorModule } 
-          language="javascript" />
-        <CodeEditor 
-          title="Styles" 
-          value={ styles } 
-          language="css" />
-      </div>
+      <Editors
+        viewerModule={ viewerModule }
+        editorModule={ editorModule }
+        styles={ styles }
+        handleModuleChange={ handleModuleChange } />
     </main>
   );
 

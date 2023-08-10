@@ -7,7 +7,8 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    esmExternals: 'loose'
+    esmExternals: 'loose',
+    serverActions: true
   },
   webpack(config) {
     config.module.rules.push({

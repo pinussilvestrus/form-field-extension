@@ -4,4 +4,4 @@ export class CustomPropertiesProvider {
   }
 }
 
-CustomPropertiesProvider.$inject = [ '' ];
+CustomPropertiesProvider.$inject = [ ];

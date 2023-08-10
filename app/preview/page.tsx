@@ -4,7 +4,7 @@ import { FormEditor } from './FormEditor'
 
 import schema from './form.json'
 
-import { Range } from '../../form-fields'
+import { CustomFormFields } from '../../form-fields'
 
 export default function Preview() {
 
@@ -13,9 +13,7 @@ export default function Preview() {
       <FormEditor 
         schema={ schema } 
         data={ {} }
-        extensions={ [
-          Range
-        ] } />
+        extensions={ CustomFormFields } />
     </main>
   )
 }

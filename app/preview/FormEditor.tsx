@@ -5,7 +5,7 @@ import { ModuleDeclaration } from 'didi';
 import { useEffect, useRef } from 'react'
 
 // @ts-ignore-next-line
-import { createCamundaFormPlayground } from '@camunda/form-playground'
+import { createCamundaFormPlayground, CamundaFormPlayground } from '@camunda/form-playground'
 
 import '@camunda/form-playground/dist/assets/form-js.css'
 import '@camunda/form-playground/dist/assets/form-js-editor.css'
@@ -30,7 +30,7 @@ export function FormEditor(props: {
 
   const formNodeRef = useRef(null);
 
-  const formEditorRef = useRef(null);
+  const formEditorRef = useRef<CamundaFormPlayground>(null);
 
   useEffect(() => {
 
@@ -45,8 +45,8 @@ export function FormEditor(props: {
         editorAdditionalModules: modules.editor
       });
 
-      // @ts-ignore-next-line
       formEditorRef.current.getEditor().get('eventBus').fire('attach');
+      formEditorRef.current.open();
     }
 
     if(!formNodeRef.current) {
@@ -58,11 +58,9 @@ export function FormEditor(props: {
     return () => {
       if(formEditorRef.current) {
 
-        // @ts-ignore-next-line
         formEditorRef.current.destroy();
 
         // notify current dragula instance to properly destroy from editor
-        // @ts-ignore-next-line
          formEditorRef.current.getEditor().get('eventBus').fire('detach');
       }
     }
@@ -93,7 +91,7 @@ function collectExtensions(extensions: Array<Extension>): {
     // viewer modules also have to go inside the editor
     modules.viewer.push(extension.viewerModule);
     modules.editor.push(extension.viewerModule);
-    modules.editor.push(extension.editorModule);
+    extension.editorModule && modules.editor.push(extension.editorModule);
   });
 
   return modules;

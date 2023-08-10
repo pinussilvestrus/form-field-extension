@@ -7,9 +7,6 @@ import {
 
 import { html } from 'diagram-js/lib/ui'
 
-import './styles.css'
-
-
 export class CustomPropertiesProvider {
   constructor(propertiesPanel) {
     propertiesPanel.registerProvider(this, 500);

@@ -17,8 +17,10 @@ export default function EditExtension({ params }: {
 
     // todo(pinussilvestrus): find a better way to load the module from the file system
     viewerModule = readFileSync(`./form-fields/${extension}/viewer.js`, 'utf8');
-    editorModule = readFileSync(`./form-fields/${extension}/editor.js`, 'utf8');
     styles = readFileSync(`./form-fields/${extension}/styles.css`, 'utf8');
+    editorModule = readFileSync(`./form-fields/${extension}/editor.js`, 'utf8');
+
+    console.log(styles);
   } catch (error: any) {
 
     if(error.code === 'ENOENT' && (

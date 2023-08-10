@@ -80,7 +80,7 @@ FileInputRenderer.config = {
   keyed: true,
   emptyValue: null,
   label: 'File input',
-  group: 'presentation',
+  group: 'basic-input',
   create: (options = {}) => ({ ...options }),
   propertiesPanelEntries: [
     'key',

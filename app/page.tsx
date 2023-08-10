@@ -33,8 +33,7 @@ export default function Home() {
         <div className="left-0 grid grid-cols-4 gap-4">
           <Link href="/edit/range"><Pill title="Number range" /></Link>
           <Link href="/edit/file"><Pill title="File input" /></Link>
-          <Link href="/"><Pill title="foo" /></Link>
-          <Link href="/"><Pill title="bar" /></Link>
+          <Link href="/edit/mrflap"><Pill title="Mr flap" /></Link>
         </div>
       </div>
       <div className="max-w-5xl flex flex-col w-full">

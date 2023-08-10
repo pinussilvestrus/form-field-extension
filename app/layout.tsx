@@ -1,5 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Inter } from 'next/font/google'
 
 import Navbar from './Navbar'
@@ -22,6 +23,9 @@ export default function RootLayout({
 
       <Navbar />
       {children}
+
+      {/* This is needed for the mrflap extension to work */}
+      <Script src="https://code.jquery.com/jquery-3.7.0.min.js"></Script>
       </body>
     </html>
   )

@@ -5,17 +5,28 @@ export default function Navbar() {
     <nav className="flex items-center justify-between flex-wrap bg-black p-6">
     <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div className="text-sm lg:flex-grow">
-        <Link href="/" className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+        <NavLink href="/">
           Extensions
-        </Link>
-        <Link href="/preview" className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+        </NavLink>
+        <NavLink href="/preview">
           Preview
-        </Link>
-        <Link href="/about" className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
+        </NavLink>
+        <NavLink href="/about">
           About
-        </Link>
+        </NavLink>
       </div>
     </div>
   </nav>
+  )
+}
+
+function NavLink({ href, children }: { 
+  href: string, 
+  children: React.ReactNode 
+}) {
+  return (
+    <Link href={ href } className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4 cursor-pointer">
+      { children }
+    </Link>
   )
 }

@@ -2,7 +2,7 @@
 
 import Editor from '@monaco-editor/react';
 
-export function JSEditor({ value, title }: {
+export function CSSEditor({ value, title }: {
   title: string,
   value: string
 }) {
@@ -11,7 +11,7 @@ export function JSEditor({ value, title }: {
       <h2 className='p-2 text-white bg-slate-600'>{title}</h2>
       <Editor
         height="85vh"
-        defaultLanguage="javascript"
+        defaultLanguage="css"
         defaultValue={ value }
       />
     </div>

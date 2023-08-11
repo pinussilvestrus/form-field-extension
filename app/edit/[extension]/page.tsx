@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "fs"
 
-import { Editors } from "./Editors";
+import { ExtensionEditors } from "./ExtensionEditors";
 import { ExtensionsSelect } from "../ExtensionsSelect";
 
 export default function EditExtension({ params }: { 
@@ -48,7 +48,7 @@ export default function EditExtension({ params }: {
   return (
     <main className="flex flex-col p-4 mb-4">
       <ExtensionsSelect selected={ extension } />
-      <Editors
+      <ExtensionEditors
         viewerModule={ viewerModule }
         editorModule={ editorModule }
         styles={ styles }

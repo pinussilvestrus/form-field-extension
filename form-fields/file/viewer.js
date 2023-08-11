@@ -93,7 +93,9 @@ FileInputRenderer.config = {
   propertiesPanelEntries: [
     'key',
     'label',
-    'description'
+    'description',
+    'disabled',
+    'readonly'
   ],
 };
 

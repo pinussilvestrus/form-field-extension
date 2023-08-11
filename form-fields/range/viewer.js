@@ -94,7 +94,9 @@ RangeRenderer.config = {
     'label',
     'description',
     'min',
-    'max'
+    'max',
+    'disabled',
+    'readonly'
   ]
 };
 

@@ -7,12 +7,33 @@ import {
 
 import { html } from 'diagram-js/lib/ui'
 
+/*
+ * This is a custom properties provider for the properties panel.
+ * It adds a new group `Range` with range specific properties. 
+ */
 export class CustomPropertiesProvider {
   constructor(propertiesPanel) {
     propertiesPanel.registerProvider(this, 500);
   }
 
+  /**
+   * Return the groups provided for the given field.
+   *
+   * @param {any} field
+   * @param {function} editField
+   *
+   * @return {(Object[]) => (Object[])} groups middleware
+   */
   getGroups(field, editField) {
+
+    /**
+     * We return a middleware that modifies
+     * the existing groups.
+     *
+     * @param {Object[]} groups
+     *
+     * @return {Object[]} modified groups
+     */
     return (groups) => {
 
       if (field.type !== 'range') {
@@ -21,6 +42,7 @@ export class CustomPropertiesProvider {
 
       const generalIdx = findGroupIdx(groups, 'general');
 
+      /* insert range group after general */
       groups.splice(generalIdx + 1, 0, {
         id: 'range',
         label: 'Range',
@@ -34,6 +56,9 @@ export class CustomPropertiesProvider {
 
 CustomPropertiesProvider.$inject = [ 'propertiesPanel' ];
 
+/* 
+ * collect range entries for our custom group 
+ */
 function RangeEntries(field, editField) {
 
   const onChange = (key) => {

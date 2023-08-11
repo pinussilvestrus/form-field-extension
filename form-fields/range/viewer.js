@@ -1,5 +1,3 @@
-'use client'
-
 import {
   Errors,
   FormContext,
@@ -19,6 +17,10 @@ import RangeIcon from './range.svg';
 
 const rangeType = 'range';
 
+/*
+ * This is the rendering part of the custom field. We use `htm` to
+ * to render our components without the need of extra JSX transpilation.
+ */
 function RangeRenderer(props) {
 
   const {
@@ -75,22 +77,31 @@ function RangeRenderer(props) {
   </div>`;
 }
 
+/*
+ * This is the configuration part of the custom field. It defines
+ * the schema type, UI label and icon, palette group, properties panel entries 
+ * and much more.
+ */
 RangeRenderer.config = {
+
+  /* we can extend the default configuration of existing fields */
   ...Numberfield.config,
   type: rangeType,
-  keyed: true,
   label: 'Range',
-  group: 'basic-input',
+  iconUrl: `data:image/svg+xml,${ encodeURIComponent(RangeIcon) }`,
   propertiesPanelEntries: [
     'key',
     'label',
     'description',
     'min',
     'max'
-  ],
-  iconUrl: `data:image/svg+xml,${ encodeURIComponent(RangeIcon) }`
+  ]
 };
 
+/*
+ * This is the module definition of the custom field. This goes
+ * into the Form instance via `additionalModules`.
+ */
 export class CustomFormFields {
   constructor(formFields) {
     formFields.register(rangeType, RangeRenderer);

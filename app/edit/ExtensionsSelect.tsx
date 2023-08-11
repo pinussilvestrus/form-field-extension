@@ -13,8 +13,14 @@ export function ExtensionsSelect({ selected }: {
   return (
     <select onChange={handleExtensionChange} aria-label="Select extension" value={ selected } className="bg-gray-50 border ml-[7px] border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-1/4 p-2 ">
       { CustomFormFields.map(({ key }) => {
-        return <option key={ key }>{ key }</option>
+        return <option key={ key } value={ key }>{ capitalize(key) }</option>
       } ) }
     </select>
   )
+}
+
+// helpers ////////////////
+
+function capitalize(value: string) {
+  return value.charAt(0).toUpperCase() + value.slice(1);
 }

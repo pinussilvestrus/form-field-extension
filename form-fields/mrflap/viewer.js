@@ -1,5 +1,3 @@
-'use client'
-
 import { 
   html
  } from 'diagram-js/lib/ui';
@@ -12,9 +10,20 @@ import MrflapIcon from './mrflap.svg';
 
 const mrflapType = 'mrflap';
 
-function MrFlapRenderer() {
+function MrFlapRenderer(props) {
+
+  const {
+    disabled
+  } = props;
+
   return html`<div class=${ formFieldClasses(mrflapType) }>
-    <div class="mrflap-playground"></div>
+    ${
+      disabled ? (
+        html`<i class="mrflap-readonly">Play Mr Flap in the Preview!</i>`
+      ) : (
+        html`<div class="mrflap-playground"></div>`
+      )
+    }
   </div>`;
 }
 

@@ -1,5 +1,3 @@
-'use client'
-
 import {
   FormContext,
   Description,
@@ -18,6 +16,10 @@ import FileIcon from './file.svg';
 
 const fileType = 'file';
 
+/*
+ * This is the rendering part of the custom field. We use `htm` to
+ * to render our components without the need of extra JSX transpilation.
+ */
 function FileInputRenderer(props) {
 
   const {
@@ -75,21 +77,30 @@ function FileInputRenderer(props) {
   </div>`;
 }
 
+/*
+ * This is the configuration part of the custom field. It defines
+ * the schema type, UI label and icon, palette group, properties panel entries 
+ * and much more.
+ */
 FileInputRenderer.config = {
   type: fileType,
   keyed: true,
   emptyValue: null,
   label: 'File input',
   group: 'basic-input',
+  iconUrl: `data:image/svg+xml,${ encodeURIComponent(FileIcon) }`,
   create: (options = {}) => ({ ...options }),
   propertiesPanelEntries: [
     'key',
     'label',
     'description'
   ],
-  iconUrl: `data:image/svg+xml,${ encodeURIComponent(FileIcon) }`
 };
 
+/*
+ * This is the module definition of the custom field. This goes
+ * into the Form instance via `additionalModules`.
+ */
 export class CustomFormFields {
   constructor(formFields) {
     formFields.register(fileType, FileInputRenderer);

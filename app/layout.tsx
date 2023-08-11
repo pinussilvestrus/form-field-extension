@@ -1,11 +1,11 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import Script from 'next/script'
-import { Inter } from 'next/font/google'
+import './globals.css';
+import type { Metadata } from 'next';
+import Script from 'next/script';
+import { Inter } from 'next/font/google';
 
-import Navbar from './Navbar'
+import Navbar from './Navbar';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Custom Form Field Editor',

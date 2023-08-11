@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { FormEditor } from './FormEditor'
+import { FormEditor } from './FormEditor';
 
-import schema from './form.json'
+import { CustomFormFields } from '@/form-fields';
 
-import { CustomFormFields } from '../../form-fields'
+import schema from './form.json';
 
 export default function Preview() {
 

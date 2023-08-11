@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 
 import Image from 'next/image';
 
-import { CodeEditor } from '../CodeEditor';
+import { CodeEditor } from '@/app/edit/CodeEditor';
 
 import { editor } from 'monaco-editor';
 

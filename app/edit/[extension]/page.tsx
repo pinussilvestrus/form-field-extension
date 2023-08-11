@@ -1,7 +1,7 @@
-import { readFileSync, writeFileSync } from "fs"
+import { readFileSync, writeFileSync } from 'fs';
 
-import { ExtensionEditors } from "./ExtensionEditors";
-import { ExtensionsSelect } from "../ExtensionsSelect";
+import { ExtensionEditors } from './ExtensionEditors';
+import { ExtensionsSelect } from '../ExtensionsSelect';
 
 export default function EditExtension({ params }: { 
   params: { extension: string } 

@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
 import { ModuleDeclaration } from 'didi';
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react';
 
 // @ts-ignore-next-line
 import { createCamundaFormPlayground, CamundaFormPlayground } from '@camunda/form-playground'
 
-import '@camunda/form-playground/dist/assets/form-js.css'
-import '@camunda/form-playground/dist/assets/form-js-editor.css'
-import '@camunda/form-playground/dist/assets/camunda-form-playground.css'
+import '@camunda/form-playground/dist/assets/form-js.css';
+import '@camunda/form-playground/dist/assets/form-js-editor.css';
+import '@camunda/form-playground/dist/assets/camunda-form-playground.css';
 
 type Extension = {
   viewerModule: ModuleDeclaration;

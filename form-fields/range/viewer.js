@@ -67,7 +67,7 @@ function RangeRenderer(props) {
         max=${ max }
         min=${ min }
         onInput=${ onChange }
-        readOnly=${ readonly }
+        readonly=${ readonly }
         value=${ value }
         step=${ step } />
       <div class="range-value">${ value }</div>

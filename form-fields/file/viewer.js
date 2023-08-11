@@ -24,6 +24,7 @@ function FileInputRenderer(props) {
 
   const {
     disabled,
+    readonly,
     field,
     value
   } = props;
@@ -70,6 +71,7 @@ function FileInputRenderer(props) {
         ref=${ inputRef }
         type="file"
         disabled=${ disabled }
+        readonly=${ readonly }
         id=${ prefixId(id, formId) }
         onInput=${ onChange }
         value=${ value } />

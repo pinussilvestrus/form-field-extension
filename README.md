@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# form-field-extension
+
+Camunda Summer Hackdays 2023 project to extend the Form Editor with custom form field extensions.
+
+![Project screenshot](./docs/screenshot.png)
+
 ## Getting Started
 
 First, run the development server:
